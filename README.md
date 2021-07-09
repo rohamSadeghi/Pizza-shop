@@ -3,6 +3,8 @@
 - Please make sure that you are using python3.8 as your interpreter. (If I had enough time I would dockerize this 
 project. I hope you can run it without any problems)
 
+- Create a .env file for your environment variables (required variables are SECRET_KEY, DEBUG and DEVEL)
+
 - Install requirements (i.e. ```pip install -r requirements.txt```)
 
 - Create project's tables (i.e. ```python manage.py makemigrations``` and ```python manage.py migrate```)
