@@ -13,4 +13,4 @@ project. I hope you can run it without any problems)
 
 - For creating a super user use ```python manage.py createsuperuser```
 
-- For checking documentation of APIs please go to <b>"http://<running-host>/api/v1/docs/"</b>
+- For checking documentation of APIs please go to <b>"http://running-host/api/v1/docs/"</b>
