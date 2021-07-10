@@ -13,6 +13,9 @@ project. I hope you can run it without any problems)
 
 - For using APIs, use "Bearer" as your authorization header key (because I used simple jwt for authentication)
 
+- For obtaining access and refresh tokens please use obtain and refresh token APIs
+(http://running-host/api/v1/accounts/token/obtain/ and http://running-host/api/v1/accounts/refresh/)
+
 - For creating a super user use ```python manage.py createsuperuser```
 
-- For checking documentation of APIs please go to <b>"http://running-host/api/v1/docs/"</b>
+- For checking documentation of APIs please go to http://running-host/api/v1/docs/
