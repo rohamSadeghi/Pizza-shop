@@ -24,7 +24,9 @@ INSTALLED_APPS = [
     'apps.orders',
 
     # Third parties
+    'rest_framework',
     'rest_framework_swagger',
+    'rest_framework_simplejwt',
     
     # Default
     'django.contrib.admin',
