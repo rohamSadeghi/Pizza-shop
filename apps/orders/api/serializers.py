@@ -14,3 +14,9 @@ class OrderPizzaSerializer(serializers.ModelSerializer):
 
     def get_pizza_details(self, order):
         return PizzaSerializer(order.pizza, context=self.context).data
+
+    def update(self, instance, validated_data):
+        pizza = validated_data['pizza']
+        price = max((pizza.price - pizza.price_discount), 0)
+        validated_data['price'] = price
+        return super().update(instance, validated_data)
