@@ -17,6 +17,9 @@ class OrderPizzaViewSet(ListModelMixin, RetrieveModelMixin, UpdateModelMixin,
         retrieve:
             Return a specific order detail.
 
+        update:
+            Update a specific order.
+
         destroy:
             Delete a specific order.
 
