@@ -5,9 +5,12 @@ from apps.pizzas.api.serializers import PizzaSerializer
 
 
 class OrderPizzaSerializer(serializers.ModelSerializer):
-    pizza = PizzaSerializer(read_only=True)
+    pizza_details = serializers.SerializerMethodField()
 
     class Meta:
         model = OrderPizza
-        fields = ('id', 'pizza', 'description', 'price', 'is_paid', 'created_time')
+        fields = ('id', 'pizza_details', 'pizza', 'description', 'price', 'is_paid', 'created_time')
         read_only_fields = ('id', 'created_time', 'price', 'is_paid')
+
+    def get_pizza_details(self, order):
+        return PizzaSerializer(order.pizza, context=self.context).data

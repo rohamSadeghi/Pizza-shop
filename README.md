@@ -4,7 +4,7 @@
 project. I hope you can run it without any problems)
 
 - Create a .env file for your environment variables (required variables are SECRET_KEY, DEBUG, ACCESS_TOKEN_LIFETIME, 
-REFRESH_TOKEN_LIFETIME sand DEVEL)
+REFRESH_TOKEN_LIFETIME and DEVEL)
 
 - Install requirements (i.e. ```pip install -r requirements.txt```)
 
@@ -15,7 +15,7 @@ REFRESH_TOKEN_LIFETIME sand DEVEL)
 - For using APIs, use "Bearer" as your authorization header key (because I used simple jwt for authentication)
 
 - For obtaining access and refresh tokens please use obtain and refresh token APIs
-(http://running-host/api/v1/accounts/token/obtain/ and http://running-host/api/v1/accounts/refresh/)
+(http://running-host/api/v1/accounts/token/obtain/ and http://running-host/api/v1/accounts/token/refresh/)
 
 - For creating a super user use ```python manage.py createsuperuser```
 

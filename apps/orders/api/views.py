@@ -1,4 +1,4 @@
-from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, DestroyModelMixin
+from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -7,7 +7,8 @@ from apps.orders.api.serializers import OrderPizzaSerializer
 from apps.orders.models import OrderPizza
 
 
-class OrderPizzaViewSet(ListModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
+class OrderPizzaViewSet(ListModelMixin, RetrieveModelMixin, UpdateModelMixin,
+                        DestroyModelMixin, GenericViewSet):
     """
 
         list:
@@ -25,7 +26,9 @@ class OrderPizzaViewSet(ListModelMixin, RetrieveModelMixin, DestroyModelMixin, G
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        return OrderPizza.objects.filter(user=self.request.user, is_enable=True).order_by('-created_time')
+        return OrderPizza.objects.filter(
+            user=self.request.user, is_enable=True
+        ).select_related('pizza').order_by('-created_time')
 
     def perform_destroy(self, order):
         order.is_enable = False
